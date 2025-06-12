@@ -1,10 +1,10 @@
 <?php
 session_start();
-require 'conexao.php';
+require '../conexao.php';
 
 // Verifica se o usuário tem permissão de ADM
 if ($_SESSION['perfil'] != 1) {
-    echo "<script>alert('Acesso negado!'); window.location.href='principal.php';</script>";
+    echo "<script>alert('Acesso negado!'); window.location.href='../principal.php';</script>";
     exit();
 }
 
@@ -39,7 +39,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 <head>
     <meta charset="UTF-8">
     <title>Excluir Usuário</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
     <h2>Excluir Usuário</h2>
@@ -69,6 +69,6 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         <p>Nenhum usuário encontrado.</p>
     <?php endif; ?>
 
-    <a href="principal.php">Voltar</a>
+    <a href="../principal.php">Voltar</a>
 </body>
 </html>

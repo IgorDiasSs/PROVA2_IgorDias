@@ -54,9 +54,11 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
         <input type="email" id="email" name="email" required>
         <label for="email">Telefone:</label>
         <input type="text" id="fone" name="fone" required>
+        <div class="btns">
+            <button type="reset">Cancelar</button>
+            <button type="submit">Salvar</button>
+        </div>
 
-        <button type="submit">Salvar</button>
-        <button type="reset">Cancelar</button>
     </form>
     <a href="../principal.php">Voltar</a>
 </body>

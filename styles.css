@@ -128,7 +128,6 @@ form {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra leve */
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centraliza os elementos dentro do formulário */
 }
 
 
@@ -137,6 +136,8 @@ label {
     display: block; /* Mantém acima do campo */
     font-weight: bold;
     margin-bottom: 5px; /* Espaço entre label e campo */
+    text-align: left;
+    margin-left: 40px;
 }
 
 /* Ajusta os campos de entrada */
@@ -150,6 +151,14 @@ select {
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
+    align-self: center;
+}
+
+
+button[type="reset"] {
+    background: none; /* Azul bonito */
+    color: #ffae00;
+
 }
 
 /* Ajusta os botões */
@@ -164,11 +173,11 @@ button {
     cursor: pointer;
     transition: 0.3s;
     max-width: 100px;
+    align-self: flex-end;
+    margin-right: 30px;
 }
 
-button:hover {
-    background-color: #ffae00; /* Azul mais escuro ao passar o mouse */
-}
+
 
 table {
     width: 80%;
