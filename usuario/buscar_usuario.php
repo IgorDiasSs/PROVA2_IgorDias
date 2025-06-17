@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-require_once 'conexao.php';
+require_once '../conexao.php';
 
 
 //Verifica se o usuario tem permissao
@@ -41,8 +41,8 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscar Usuário</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js"></script>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../scripts.js"></script>
 </head>
 <body>
     <h2>Lista de Usuárioa</h2>
@@ -78,6 +78,6 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <?php else: ?>
         <p>Nenhum Usuário Encontrado</p>
     <?php endif; ?>
-    <a href="principal.php">Voltar</a>
+    <a href="../principal.php">Voltar</a>
 </body>
 </html>

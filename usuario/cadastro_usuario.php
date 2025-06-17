@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-require_once 'conexao.php';
+require_once '../conexao.php';
 
 
 //Verifica se o usuario tem permissao
@@ -40,8 +40,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Usuário</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js"></script>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../scripts.js"></script>
 </head>
 <body>
     <h2>Cadastrar Usuário</h2>
@@ -62,6 +62,6 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
         <button type="submit">Salvar</button>
         <button type="reset">Cancelar</button>
     </form>
-    <a href="principal.php">Voltar</a>
+    <a href="../principal.php">Voltar</a>
 </body>
 </html>

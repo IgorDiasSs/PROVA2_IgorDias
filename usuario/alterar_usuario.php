@@ -43,10 +43,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Alterar Usuário</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles.css">
     
     <!-- Certifique-se de que o JavaScript está sendo carregado corretamente -->
-    <script src="scripts.js"></script>
+    <script src="../scripts.js"></script>
 </head>
 <body>
     <h2>Alterar Usuário</h2>
@@ -92,6 +92,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
     <?php endif; ?>
 
-    <a href="principal.php">Voltar</a>
+    <a href="../principal.php">Voltar</a>
 </body>
 </html>
