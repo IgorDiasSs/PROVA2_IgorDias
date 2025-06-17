@@ -15,7 +15,6 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
     $email = $_POST['email'];
     $telefone = $_POST['fone'];
     $endereco = $_POST['endereco'];
-    $id_perfil = $_POST['id_perfil'];
 
     $sql = "INSERT INTO funcionario (nome_funcionario, endereco, telefone, email ) VALUES (:nome, :endereco, :telefone, :email)";
     $stmt = $pdo->prepare($sql);
@@ -25,10 +24,10 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
     $stmt->bindParam(':email', $email);
 
     if($stmt->execute()){
-        echo "<script>alert('Usuário Cadastrado com sucesso! '); </script>";
+        echo "<script>alert('Funcionário Cadastrado com sucesso! '); window.location.href='cadastro_funcionario.php'; </script>";
 
     } else {
-        echo "<script>alert('ERR0 ao cadastrar Usuário! '); </script>";
+        echo "<script>alert('ERR0 ao cadastrar Funcionário! '); </script>";
     }
 
 }
@@ -41,11 +40,14 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Usuário</title>
     <link rel="stylesheet" href="../styles.css">
-    <script src="scripts.js"></script>
+    <script src="../scripts.js"></script>
 </head>
 <body>
+    <div class="cabecalho">
+        Por: Igor da Silva Dias
+    </div>
     <h2>Cadastro de Funcionário</h2>
-    <form action="cadastro_funcionario.php" method="POST">
+    <form class="form-funcionario" action="cadastro_funcionario.php" method="POST">
         <label for="nome">Nome:</label>
         <input type="text" id="nome" name="nome" required>
         <label for="endereco">Endereço:</label>

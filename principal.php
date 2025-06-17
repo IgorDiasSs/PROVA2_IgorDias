@@ -132,7 +132,9 @@ $opcoes_menu = $permissoes[$id_perfil];
 </head>
 
 <body>
-
+    <div class="cabecalho">
+        <p>Por: Igor da Silva Dias</p>
+    </div>
     <header>
         <div class="saudacao">
             <h2>Bem Vindo <?php echo $_SESSION["usuario"]; ?>! Perfil: <?php echo $nome_perfil; ?></h2>

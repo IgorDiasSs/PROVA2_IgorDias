@@ -12,9 +12,9 @@ if ($_SESSION['perfil'] != 1) {
 $funcionario = null;
 
 // Se o formulário for enviado, busca o usuário pelo ID ou nome
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (!empty($_POST['busca_funcionario'])) {
-        $busca = trim($_POST['busca_funcionario']);
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    if (!empty($_GET['busca'])) {
+        $busca = trim($_GET['busca']);
 
         // Verifica se a busca é um número (ID) ou um nome
         if (is_numeric($busca)) {
@@ -74,18 +74,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id_funcionario'])) {
     <link rel="stylesheet" href="../styles.css">
     
     <!-- Certifique-se de que o JavaScript está sendo carregado corretamente -->
-    <script src="scripts.js"></script>
+    <script src="../scripts.js"></script>
 </head>
 <body>
+    <div class="cabecalho">
+        Por: Igor da Silva Dias
+    </div>
     <h2>Alterar Funcionário</h2>
 
     <!-- Formulário para buscar usuário pelo ID ou Nome -->
-    <form action="alterar_funcionario.php" method="POST">
+    <form action="alterar_funcionario.php" method="GET">
         <label for="busca_funcionario">Digite o ID ou Nome do usuário:</label>
-        <input type="text" id="busca_funcionario" name="busca_funcionario" required onkeyup="buscarSugestoes()">
-        
-        <!-- Div para exibir sugestões de usuários -->
-        <div id="sugestoes"></div>
+        <input type="text" id="busca_funcionario" name="busca" required onkeyup="buscarSugestoes()">
         
         <button type="submit">Buscar</button>
     </form>
@@ -104,11 +104,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id_funcionario'])) {
             <label for="email">E-mail:</label>
             <input type="email" id="email" name="email" value="<?= htmlspecialchars($funcionario['email']) ?>" required>
 
-            <label for="email">Telefone:</label>
-            <input type="text" id="fone" name="fone" value="<?= htmlspecialchars($funcionario['telefone']) ?>" required>
+            <label for="telefone">Telefone:</label>
+            <input type="text" id="telefone" name="telefone" value="<?= htmlspecialchars($funcionario['telefone']) ?>" required>
 
-            <button type="submit">Alterar</button>
-            <button type="reset">Limpar</button>
+            <button type="submit" nmae="alterar">Alterar</button>
         </form>
     <?php endif; ?>
 

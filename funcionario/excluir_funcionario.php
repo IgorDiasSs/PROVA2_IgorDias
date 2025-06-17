@@ -40,8 +40,12 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     <meta charset="UTF-8">
     <title>Excluir Usuário</title>
     <link rel="stylesheet" href="../styles.css">
+    <script src="../scripts.js"></script>
 </head>
 <body>
+    <div class="cabecalho">
+        Por: Igor da Silva Dias
+    </div>
     <h2>Excluir Usuário</h2>
 
     <?php if (!empty($funcionarios)): ?>
@@ -58,7 +62,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                     <td><?= htmlspecialchars($funcionario['nome_funcionario']) ?></td>
                     <td><?= htmlspecialchars($funcionario['email']) ?></td>
                     <td>
-                        <a style="color:red;" href="excluir_funcionario.php?id=<?= htmlspecialchars($funcionario['id_funcionario']) ?>" onclick="return confirm('Tem certeza que deseja excluir este usuário?')">Excluir</a>
+                        <a style="color:red;" href="excluir_funcionario.php?id=<?= htmlspecialchars($funcionario['id_funcionario']) ?>" onclick="return confirm('Tem certeza que deseja excluir este funcionário?')">Excluir</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

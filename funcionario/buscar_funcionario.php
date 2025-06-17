@@ -31,6 +31,10 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && !empty($_POST['busca'])){
 }else {
     $sql = "SELECT * FROM funcionario ORDER BY nome_funcionario ASC";
     $stmt = $pdo->prepare($sql);
+    if (!$stmt) {
+        echo "<script>alert('Erro ao preparar a consulta.');</script>";
+        exit();
+    }
 }
 $stmt->execute();
 $funcionarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -42,14 +46,17 @@ $funcionarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscar Usuário</title>
     <link rel="stylesheet" href="../styles.css">
-    <script src="scripts.js"></script>
+    <script src="../scripts.js"></script>
 </head>
 <body>
+    <div class="cabecalho">
+        Por: Igor da Silva Dias
+    </div>
     <h2>Lista de Usuárioa</h2>
     <!-- Formulário para buscar usuários -->
     <form action="buscar_funcionario.php" method="POST">
         <label for="busca">Digite o ID ou nome (OPCIONAL):</label>
-        <input type="text" id="busca" name="busca" required>
+        <input type="text" id="busca" name="busca">
 
         <button type="submit">Pesquisar</button>
     </form>
@@ -67,7 +74,7 @@ $funcionarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <td><?= htmlspecialchars($funcionario['nome_funcionario']); ?></td>
                 <td><?= htmlspecialchars($funcionario['email']); ?></td>
                 <td>
-                    <a style="color:black;" href="alterar_funcionario.php?id=<?=htmlspecialchars($funcionario['id_funcionario']); ?> ">Alterar</a>
+                    <a style="color:black;" href="alterar_funcionario.php?busca=<?=htmlspecialchars($funcionario['id_funcionario']); ?> ">Alterar</a>
                     <a style="color:red;" href="excluir_funcionario.php?id=<?=htmlspecialchars($funcionario['id_funcionario']); ?> " onclick="return confirm('Tem certeja que deseja excluiir esse usuário?')">Excluir</a>
                 </td>
             </tr>
